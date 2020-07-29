@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://kit.fontawesome.com/4a975fa749.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mycss.css') }}">
+   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+  <title>mushroom classifier</title>
+</head>
+  <body>
+  <h1 style="text-align:center"> mushroom classifier</h1>
+   <br>
+    <br>
+    <h2>About</h2>
+  <p>This project is used to predict wheather mushroom is  edable or poisonous.</p>
+ <h2>Options</h2><span>
+  <form action="{{ url_for('predict')}}"method="post">
+    <label for="capshape">Choose a cap shape:</label>
+
+<select name="capshape" id="capshape" required="required">
+  <option value="">None</option>
+  <option value="0">bell</option>
+  <option value="1">conical</option>
+  <option value="2">convex</option>
+  <option value="3">flat</option>
+  <option value="4">knobbed</option>
+  <option value="5">sunken</option>
+  
+</select></span>
+    <span>
+      <label for="cap-surface">Choose a cap surface:</label>
+
+<select name="cap-surface" id="cap-surface">
+  <option value="">None</option>
+  <option value="0">fibrous</option>
+  <option value="1">grovees</option>
+  <option value="2">scaly</option>
+  <option value="3">smooth</option>
+
+    </select>
+         </span>
+        <span>
+      <label for="cap-color">Choose  cap color:</label>
+
+<select name="cap-color" id="cap-color">
+  <option value="">None</option>
+  <option value="0">brown</option>
+  <option value="1">buff</option>
+  <option value="2">cinnamon</option>
+  <option value="3">gray</option>
+   <option value="4">green</option>
+   <option value="5">pink</option>
+   <option value="6">purple</option>
+   <option value="7">red</option>
+   <option value="8">white</option>
+   <option value="9">yellow</option>
+    </select>
+              </span>
+      
+        <span>
+      <label for="odor">Choose  odor:</label>
+
+<select name="odor" id="odor">
+  <option value="">None</option>
+  <option value="0">almond</option>
+  <option value="1">anise</option>
+  <option value="2">creosote</option>
+  <option value="3">fishy</option>
+  <option value="4">foul</option>
+  <option value="5">musty</option>
+  <option value="6">none</option>
+  <option value="7">pungent</option>
+  <option value="8">spicy</option>
+    </select>
+       </span>
+     <span>
+      <label for="gill-color">Choose  gill color:</label>
+
+<select name="grill-color" id="grill-color">
+  <option value="">None</option>
+  <option value="0">black</option>
+  <option value="1">brown</option>
+  <option value="2">buff</option>
+  <option value="3">cinnamon</option>
+  <option value="4">gray</option>
+   <option value="5">green</option>
+  <option value="6">orange</option>
+   <option value="7">pink</option>
+   <option value="8">purple</option>
+   <option value="9">red</option>
+   <option value="10">white</option>
+   <option value="11">yellow</option>
+    </select>
+    </span>
+        <span>
+      <label for="grill-attachment">Choose  gill-attachment:</label>
+
+<select name="gill-attachment" id="gill-attachment">
+  <option value="">None</option>
+  <option value="0">attached</option>
+  <option value="1">descending</option>
+  <option value="2">free</option>
+  <option value="3">notched</option>
+    </select>
+        </span>
+        <span>
+    <label for="grill-spacing">Choose  gill-spacing:</label>
+<select name="gill-spacing" id="gill-spacing">
+  <option value="">None</option>
+  <option value="0">closed</option>
+  <option value="1">croweded</option>
+  <option value="2">distant</option>
+    </select>
+        </span>
+            <span>
+    <label for="habitat">Choose  habitat:</label>
+<select name="habitat" id="habitat">
+  <option value="">None</option>
+  <option value="0">grasses</option>
+  <option value="1">leaves</option>
+  <option value="2">meadows</option>
+  <option value="3">paths</option>
+  <option value="4">urban</option>
+  <option value="5">waste</option>
+  <option value="6">woods</option>
+    </select>
+        </span>
+                <span>
+    <label for="population">Choose  population:</label>
+<select name="population" id="population">
+  <option value="">None</option>
+  <option value="0">abundant</option>
+  <option value="1">clustered</option>
+  <option value="2">numerous</option>
+  <option value="3">scattered</option>
+  <option value="4">several</option>
+  <option value="5">solitary</option>
+  <option value="6">woods</option>
+    </select>
+        </span> 
+  <span><label for=stalk-color-below-ring>Choose  stalk-color-below-ring:</label><select name=stalk-color-below-ring id=stalk-color-below-ring>
+    <option value="">None</option>
+<option value="0">brown</option>
+<option value="1">buff</option>
+<option value="2">cinnamon</option>
+<option value="3">gray</option>
+<option value="4">orange</option>
+<option value="5">pink</option>
+<option value="6">red</option>
+<option value="7">white</option>
+<option value="8">yellow</option>
+</select></span> 
+    <span><label for=ring-number>Choose  ring-number:</label><select name=ring-number id=ring-number>
+      <option value="">None</option>
+<option value="0">zero</option>
+<option value="1">one</option>
+<option value="2">two</option>
+</select></span> 
+ <span><label for=ring-type>Choose  ring-type:</label><select name=ring-type id=ring-type>
+  <option value="">None</option>
+<option value="0">cobwebby</option>
+<option value="1">evanescent</option>
+<option value="2">flaring</option>
+<option value="3">large</option>
+<option value="4">none</option>
+<option value="5">pendant</option>
+<option value="6">sheathing</option>
+<option value="7">zone</option>
+</select></span> 
+    <span><label for=stalk-shape>Choose  stalk-shape:</label><select name=stalk-shape id=stalk-shape>
+      <option value="">None</option>
+<option value="0">enlarging</option>
+<option value="1">tapering</option>
+</select></span> 
+    <span><label for=stalk-color-above-ring>Choose  stalk-color-above-ring:</label><select name=stalk-color-above-ring id=stalk-color-above-ring>
+      <option value="">None</option>
+<option value="0">brown</option>
+<option value="1">buff</option>
+<option value="2">cinnamon</option>
+<option value="3">gray</option>
+<option value="4">orange</option>
+<option value="5">pink</option>
+<option value="6">red</option>
+<option value="7">white</option>
+<option value="8">yellow</option>
+</select></span> 
+  
+    <p>Select grill size:</p>
+  <input type="radio" id="0" name="gill-size" value="0" required="required">
+  <label for="0">broad</label><br>
+  <input type="radio" id="1" name="gill-size" value="0" required="required">
+  <label for="0">narrow</label>
+  
+        
+      
+      <p>Are bruises present:</p>
+  <input type="radio" id="1" name="bruises" value="1" required="required">
+  <label for="1">yes</label><br>
+  <input type="radio" id="0" name="bruises" value="0" required="required">
+  <label for="0">no</label>
+  <br>
+    <button type="submit" id="button1" >Predict</button> 
+       </form><h2 style="color: white">
+         {{ prediction_text }}    </h2>      
+</body>
+  <hr>
+  <footer>
+  <a href="https://www.kaggle.com/abhishekvardhan" title="kaggle" target="__blank"><i class="fab fa-kaggle fa-2x"  ></i></a>
+  <a href="https://github.com/abhishekvardhan" target="__blank" title="Github"><i class="fab fa-github fa-2x"  ></i></a>
+  <a href="https://www.hackerrank.com/abhivsp10" target="__blank" title="Hackerrank"><i class="fab fa-hackerrank fa-2x"  ></i></a><br>
+  <a href="https://github.com/abhishekvardhan/random-walk"></a>
+  <address>
+    flat no: 301,Shivaji Nagar<br>
+    Krmannapalem,Visakhapatnam<br>
+    Andhra Pradesh
+  </address>
+</footer>
+</html>
